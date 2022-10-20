@@ -8,12 +8,14 @@ import math
 
 class LogoAdder:
     def __init__(self, logo_path: str, image_folder_path: str, logo_position: str, 
-                logo_size: float = 1, logo_angle: float = 0) -> None:
+                logo_size: float = 1, logo_angle: float = 0, x_offset: int = 0, y_offset: int = 0) -> None:
         self.logo_path = logo_path
         self.image_folder_path = image_folder_path
         self.position_function = LogoPosition.positions[logo_position]
         self.logo_size = logo_size
         self.logo_angle = logo_angle
+        self.x_offset = x_offset
+        self.y_offset = y_offset
         
         self.output_folder_name = "with_logo"
         self.output_folder = self.generate_output_folder()
@@ -53,7 +55,7 @@ class LogoAdder:
 
         return logo.resize((new_width,new_height)).rotate(self.logo_angle)
 
-    def add_logo(self, images_path: list, ) -> None:
+    def add_logo(self, images_path: list) -> None:
         logo = self.setup_logo()
         logo_width, logo_height = logo.size
 
@@ -64,7 +66,9 @@ class LogoAdder:
             if logo_width > image_width or logo_height > image_height:
                 continue
 
-            position = self.position_function(image_width, image_height, logo_width, logo_height)
+            position = self.position_function(image_width, image_height, logo_width, logo_height,
+                    self.x_offset, self.y_offset)
+            print(position)
             image.paste(logo, position, logo)
             image.save(self.output_folder.joinpath(image_path.name))
     

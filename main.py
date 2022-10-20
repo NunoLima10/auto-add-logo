@@ -8,9 +8,11 @@ def main() -> None:
     logo_adder = LogoAdder(
         logo_path, 
         images_folder, 
-        LogoPosition.center, 
+        LogoPosition.top_left, 
         logo_size=0.5,
-        logo_angle = 0
+        logo_angle = 0,
+        x_offset = -10,
+        y_offset = -10
     )
     logo_adder.start()
     
