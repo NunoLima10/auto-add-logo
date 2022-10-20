@@ -8,11 +8,12 @@ import math
 
 class LogoAdder:
     def __init__(self, logo_path: str, image_folder_path: str, logo_position: str, 
-                logo_size: float = 1) -> None:
+                logo_size: float = 1, logo_angle: float = 0) -> None:
         self.logo_path = logo_path
         self.image_folder_path = image_folder_path
         self.position_function = LogoPosition.positions[logo_position]
         self.logo_size = logo_size
+        self.logo_angle = logo_angle
         
         self.output_folder_name = "with_logo"
         self.output_folder = self.generate_output_folder()
@@ -50,7 +51,7 @@ class LogoAdder:
         new_width = math.floor(logo_width * self.logo_size)
         new_height =  math.floor(logo_height * self.logo_size)
 
-        return logo.resize((new_width,new_height))
+        return logo.resize((new_width,new_height)).rotate(self.logo_angle)
 
     def add_logo(self, images_path: list, ) -> None:
         logo = self.setup_logo()
