@@ -1,12 +1,6 @@
 from math import floor
 
 class LogoPosition:
-    center = "center"
-    top_left = "top_left"
-    top_right ="top_right"
-    bottom_left = "bottom_left"
-    bottom_right = "bottom_right"
-
     @staticmethod
     def to_center(image_width: int, image_height:int, logo_width:int, 
                 logo_height: int, x_offset: int = 0, y_offset: int = 0) -> tuple:

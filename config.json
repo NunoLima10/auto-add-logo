@@ -1,0 +1,17 @@
+{
+    "logo_config":{
+        "logo_size": 100,
+        "logo_angle": 0.2,
+        "x_offset": -50,
+        "y_offset": -50,
+        "logo_position":"bottom_right" 
+    },
+
+    "valid_logo_positions": [
+        "center",
+        "top_left",
+        "top_right",
+        "bottom_left",
+        "bottom_right"
+    ]
+}
