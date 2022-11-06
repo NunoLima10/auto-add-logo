@@ -1,6 +1,6 @@
 from src.exceptions import InvalidLogoSize,InvalidLogoPosition,InvalidLogoAngle,InvalidOffset,InvalidConfig
-from src.logo_position import LogoPosition
 from tkinter import messagebox
+
 import json
 
 def load_config(file_path: str) -> dict:
@@ -41,6 +41,6 @@ def valid_config(config: dict) -> None:
     if config["logo_size"] <= 0 or config["logo_size"] > 100:
             raise InvalidLogoSize
 
-    if config["logo_position"] not in LogoPosition.positions:
+    if config["logo_position"] not in ["center","top_left","top_right","bottom_left","bottom_right"]:
         raise InvalidLogoPosition
 

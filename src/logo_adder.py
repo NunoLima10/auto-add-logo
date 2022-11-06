@@ -8,10 +8,10 @@ class LogoAdder:
     def __init__(self, logo_path: str, image_folder_path: str, config: dict) -> None:
         self.logo_path = logo_path
         self.image_folder_path = image_folder_path
-        self.position_function = LogoPosition.positions[config["logo_position"]]
+        self.position_function = LogoPosition(config["logo_position"]).position_function
         
-        self.logo_size = config["logo_position"] / 100
-        self.logo_angle = config["logo_size"]
+        self.logo_size = config["logo_size"] / 100
+        self.logo_angle = config["logo_angle"]
         self.x_offset = config["x_offset"]
         self.y_offset = config["y_offset"]
         
