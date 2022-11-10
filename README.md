@@ -17,3 +17,7 @@
 > logo_adder.start()
 >````
 > After using the start() method, all new images will be placed in the directory named “with_logo”
+ ---
+> ### Todo list paused(10/11/2022)
+> - fix exe file bugs
+> - release exe file
