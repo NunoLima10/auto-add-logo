@@ -2,6 +2,7 @@ from src.exceptions import InvalidLogoSize,InvalidLogoPosition,InvalidLogoAngle,
 from tkinter import messagebox
 
 import json
+import sys
 
 def load_config(file_path: str) -> dict:
     with open(file_path) as file:
@@ -10,21 +11,25 @@ def load_config(file_path: str) -> dict:
             config = data["logo_config"]
             valid_config(config)
             return config
-
         except InvalidLogoSize:
             messagebox.showerror("Error", InvalidLogoSize.message)
+            sys.exit()
 
         except InvalidLogoPosition:
             messagebox.showerror("Error", InvalidLogoPosition.message)
+            sys.exit()
 
         except InvalidLogoAngle:
             messagebox.showerror("Error", InvalidLogoAngle.message)
+            sys.exit()
 
         except InvalidOffset:
             messagebox.showerror("Error", InvalidOffset.message)
+            sys.exit()
         
         except KeyError:
             messagebox.showerror("Error",InvalidConfig.message)
+            sys.exit()
 
 
 def valid_config(config: dict) -> None:
