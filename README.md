@@ -15,7 +15,7 @@
 > 
 > <img src="images/img3.png">
 > 
->                                                            Done, easy as that
+>                                                        Done, easy as that
 >
 > Images are saved in the with logo folder
 >
