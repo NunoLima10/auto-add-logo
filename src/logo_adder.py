@@ -57,7 +57,7 @@ class LogoAdder:
                     self.x_offset, self.y_offset)
 
             image.paste(logo, position, logo)
-            image.save(self.output_folder.joinpath(image_path.name))
+            image.save(self.output_folder.joinpath(image_path.name),quality=100, subsampling=0)
     
     def start(self) -> None:
         images = self.get_images()
